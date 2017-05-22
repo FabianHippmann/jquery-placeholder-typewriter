@@ -2,7 +2,7 @@
  jQuery placeholderTypewriter plugin
  ===================================
  Author: Bjoern Diekert <https://github.com/bdiekert>
- Version: 1.0
+ Version: 1.1.0
  License: Unlicense <http://unlicense.org>
  */
 (function ($) {
@@ -14,7 +14,8 @@
     var settings = $.extend({
       delay: 50,
       pause: 1000,
-      text: []
+      text: [],
+      loop: true
     }, options);
 
     // Type given string in placeholder
@@ -70,13 +71,21 @@
       // Type string
       typeString($target, index, 0, function () {
 
+        // Up index
+        index = index + 1;
+
+        // If loop is false, just run through the array once
+        if(index === settings.text.length && !settings.loop) {
+          return false;
+        }
+
         // Pause before deleting string
         setTimeout(function () {
 
           // Delete string
           deleteString($target, function () {
             // Start loop over
-            loopTyping($target, (index + 1) % settings.text.length)
+            loopTyping($target, index % settings.text.length)
           })
 
         }, settings.pause);
