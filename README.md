@@ -30,11 +30,12 @@ $('#search').placeholderTypewriter({text: placeholderText});
 
 ## Parameters
 
-| **Option** | **Values**                                      | **Default** |
+| **Option** | **Values**                                      | **Default**  |
 |------------|-------------------------------------------------|--------------|
 | delay      | delay in ms between character typing / deleting | 50ms         |
 | pause      | delay between single texts                      | 1000ms       |
 | text       | array with strings to display                   | no default   |
+| loop       | loop through array over and over                | true         |
 
 ## jQuery versions & browser support
 
